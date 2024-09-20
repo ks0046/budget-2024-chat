@@ -15,7 +15,7 @@ os.environ["OPENAI_API_KEY"] = "your OpenAI API key"
 
 def load_data():
     """Load documents from the specified directory and create a Faiss index."""
-    doc_path = os.path.expanduser("~/Desktop/personal/python/projects/doc")
+    doc_path = os.path.expanduser("budget_speech.docx")
     if not os.path.exists(doc_path):
         print(f"Directory {doc_path} does not exist. Please check the path.")
         return None
