@@ -78,7 +78,7 @@ def main():
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-    prompt = st.chat_input("what is your question?"
+    prompt = st.chat_input("what is your question?")
     # Accept user input
     if prompt: 
         # Add user message to chat history
