@@ -63,7 +63,7 @@ chat_engine = setup_chat_engine(vector_index)
 def main():
     """Create the Streamlit app"""
     st.title("LlamaIndex Chatbot")
-    st.write("Ask me anything about the loaded documents!")
+    st.write("Ask me anything about India's 2024 Budget!")
 
     if chat_engine is None:
         st.error("Failed to initialize chat engine. Please check your document path.")
