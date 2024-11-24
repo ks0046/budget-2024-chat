@@ -11,11 +11,11 @@ from llama_index.llms.openai import OpenAI
 from llama_index.core.memory import ChatMemoryBuffer
 
 # Set up OpenAI API key
-os.environ["OPENAI_API_KEY"] = "your OpenAI API key"
+os.environ["OPENAI_API_KEY"] = st.secrets['OPENAI_API_KEY']
 
 def load_data():
     """Load documents from the specified directory and create a Faiss index."""
-    doc_path = os.path.expanduser("budget_speech.docx")
+    doc_path = os.path.expanduser("docs")
     if not os.path.exists(doc_path):
         print(f"Directory {doc_path} does not exist. Please check the path.")
         return None
