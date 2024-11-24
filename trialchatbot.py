@@ -80,22 +80,27 @@ def main():
 
     prompt = st.chat_input("what is your question?")
     # Accept user input
-    if prompt: 
+    # Only process if there's a prompt
+    if prompt:
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
-        # Display user message in chat message container
+        
+        # Display user message
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        # Generate assistant response
-        # Generate assistant response
-    with st.chat_message("assistant"):
-        message_placeholder = st.empty()
-        response = chat_engine.chat(prompt)
-        print("final answer ----------", response)
-        
-        # Display the response on the Streamlit UI
-        message_placeholder.markdown(response.response)
+        # Generate and display assistant response
+        try:
+            with st.chat_message("assistant"):
+                message_placeholder = st.empty()
+                response = chat_engine.chat(prompt)
+                message_placeholder.markdown(response.response)
+                
+                # Add assistant response to chat history
+                st.session_state.messages.append({"role": "assistant", "content": response.response})
+        except Exception as e:
+            st.error(f"Error generating response: {str(e)}")
+            print(f"Error details: {e}")
 
 # Add assistant response to chat history
         st.session_state.messages.append({"role": "assistant", "content": response.response})
